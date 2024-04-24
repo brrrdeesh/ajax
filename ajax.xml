@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+  <movie id="1">
+    <title>The Shawshank Redemption</title>
+    <year>1994</year>
+    <genre>Drama</genre>
+    <director>Frank Darabont</director>
+  </movie>
+  <movie id="2">
+    <title>The Godfather</title>
+    <year>1972</year>
+    <genre>Crime</genre>
+    <director>Francis Ford Coppola</director>
+  </movie>
+  <movie id="3">
+    <title>The Dark Knight</title>
+    <year>2008</year>
+    <genre>Action</genre>
+    <director>Christopher Nolan</director>
+  </movie>
+  <movie id="4">
+    <title>Inception</title>
+    <year>2010</year>
+    <genre>Science Fiction</genre>
+    <director>Christopher Nolan</director>
+  </movie>
+</movies>
