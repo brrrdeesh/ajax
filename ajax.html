@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Retrieve Movie Details using Ajax</title>
+  </head>
+  <body>
+    <form>
+      <label for="movieId">Enter Movie ID:</label>
+      <input type="text" id="movieId" name="movieId">
+      <button type="submit">Get Movie Details</button>
+    </form>
+    <div id="movieDetails"></div>
+
+    <script>
+      function getMovieDetails() {
+        var movieId = document.getElementById("movieId").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "movies.xml", true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var xmlDoc = xhr.responseXML;
+            var movie = xmlDoc.querySelector("movie[id='" + movieId + "']");
+            if (movie) {
+              var title = movie.querySelector("title").textContent;
+              var year = movie.querySelector("year").textContent;
+              var genre = movie.querySelector("genre").textContent;
+              var director = movie.querySelector("director").textContent;
+              document.getElementById("movieDetails").innerHTML = "Title: " + title + "<br>Year: " + year + "<br>Genre: " + genre + "<br>Director: " + director;
+            } else {
+              document.getElementById("movieDetails").innerHTML = "Movie not found";
+            }
+          }
+        };
+        xhr.send();
+      }
+
+      document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        getMovieDetails();
+      });
+    </script>
+  </body>
+</html>
